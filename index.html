@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Octaa | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffebf5;
+            color: #502f34;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        /* navbar */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #ead3da;
+            border-bottom: 1px solid #eee5e5;
+            z-index: 10;
+        }
+
+        nav {
+            max-width: 1100px;
+            height: 70px;
+            margin: auto;
+            padding: 0 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            font-size: 14px;
+            color: #502f34;
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #cd4174;
+        }
+
+        /* hero */
+        .hero {
+            min-height: 100vh;
+            max-width: 1100px;
+            margin: auto;
+            padding: 120px 25px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-family: Georgia, serif;
+            font-size: 70px;
+            font-weight: normal;
+            line-height: 1;
+            margin: 15px 0;
+        }
+
+        .hero h2 {
+            font-size: 21px;
+            font-weight: normal;
+            color: #502f34;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            color: #502f34;
+            margin-bottom: 25px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #332d2e;
+            color: white;
+            padding: 11px 22px;
+            border-radius: 25px;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background-color: #b8758e;
+            transform: translateY(-3px);
+        }
+
+        .profile {
+            width: 270px;
+            height: 320px;
+            background-color: #571a2d;
+            border-radius: 150px 150px 20px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 12px 12px #dcb9c4;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 70% 35%;
+        }
+
+        /* section */
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-family: Georgia, serif;
+            font-size: 38px;
+            font-weight: normal;
+        }
+
+        /* about */
+        .about {
+            background-color: #fff7eb;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .about-content p {
+            color: #6f6668;
+            margin-bottom: 15px;
+        }
+
+        .info {
+            background-color: #ffebf5;
+            padding: 16px 20px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border: 1px solid #b8758e;
+        }
+
+        .info strong {
+            display: block;
+            color: #b8758e;
+            font-size: 12px;
+        }
+
+        .info span {
+            font-size: 14px;
+        }
+
+        /* skills */
+        .skills {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .skill {
+            background-color: white;
+            border: 1px solid #e5dddd;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            border-color: #b8758e;
+            transform: translateY(-4px);
+        }
+
+        /* projects */
+        .projects {
+            background-color: #fff7eb;
+        }
+
+        .projects-grid {
+            max-width: 1050px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .project {
+            background-color: #fff;
+            border: 1px solid #b8758e;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            width: 100%;
+            background-color: #ead3da;
+        }
+
+        .project-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info small {
+            color: #b8758e;
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .project-info h3 {
+            font-family: Georgia, serif;
+            font-size: 23px;
+            font-weight: normal;
+            margin: 5px 0;
+        }
+
+        .project-info p {
+            font-size: 13px;
+            color: #756c6e;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 12px;
+        }
+
+        .chip {
+            background-color: #ead3da;
+            color: #47212f;
+            padding: 4px 9px;
+            border-radius: 15px;
+            font-size: 10px;
+        }
+
+        /* contact */
+        .contact {
+            text-align: center;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .contact h2 {
+            font-family: Georgia, serif;
+            font-size: 45px;
+            font-weight: normal;
+            margin: 8px 0;
+        }
+
+        .contact p {
+            color: #502f34;
+            margin-bottom: 25px;
+        }
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .socials a {
+            color: #502f34;
+            font-size: 14px;
+            border-bottom: 1px solid #b8758e;
+            padding-bottom: 3px;
+        }
+
+        .socials a:hover {
+            color: #b8758e;
+        }
+
+        /* footer */
+        footer {
+            text-align: center;
+            padding: 15px;
+            border-top: 1px solid #502f34;
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* responsive */
+        @media (max-width: 750px) {
+            .nav-menu {
+                gap: 12px;
+            }
+
+            .nav-menu a {
+                font-size: 11px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .profile {
+                order: -1;
+                width: 210px;
+                height: 250px;
+            }
+
+            .about-content,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 52px;
+            }
+
+            .skills {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- navbar -->
+    <header>
+        <nav>
+            <a href="#home" class="logo">
+                Octavia Profile
+            </a>
+            <ul class="nav-menu">
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+                <li>
+                    <a href="#about">About</a>
+                </li>
+                <li>
+                    <a href="#skills">Skills</a>
+                </li>
+                <li>
+                    <a href="#projects">Projects</a>
+                </li>
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- hero -->
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <p class="small-title">
+                HELLO, I'M
+            </p>
+            <h1>
+                Octavia Habeahan
+            </h1>
+
+            <h2>
+                Information Management Student
+            </h2>
+
+            <p>
+                I’m interested in UI/UX design, visual design,
+                and exploring how technology can turn ideas into
+                meaningful digital experiences.
+            </p>
+
+            <a href="#projects" class="button">
+                Explore My Work →
+            </a>
+
+        </div>
+        <div class="profile">
+            <img src="img/taa.jpeg" alt="foto profil">
+        </div>
+
+    </section>
+    <!-- about -->
+    <section class="about" id="about">
+        <div class="section-title">
+            <h2>
+                Get To Know Me
+            </h2>
+        </div>
+        <div class="about-content">
+            <div>
+                <p>
+                    I'm an Information Management student with
+                    a strong interest in UI/UX design and visual
+                    communication.
+                </p>
+                <p>
+                    I enjoy designing interfaces, creating visual
+                    concepts, and learning the fundamentals of
+                    web development.
+                </p>
+            </div>
+            <div>
+                <div class="info">
+                    <strong>
+                        EDUCATION
+                    </strong>
+                    <span>
+                        D4 Information Management
+                    </span>
+                </div>
+                <div class="info">
+                    <strong>
+                        FOCUS
+                    </strong>
+                    <span>
+                        UI/UX & Visual Design
+                    </span>
+                </div>
+                <div class="info">
+                    <strong>
+                        TOOLS
+                    </strong>
+                    <span>
+                        Figma & Canva
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- skills -->
+    <section id="skills">
+        <div class="section-title">
+            <h2>
+                Skills
+            </h2>
+        </div>
+        <div class="skills">
+            <div class="skill">
+                UI/UX Design
+            </div>
+            <div class="skill">
+                Figma
+            </div>
+            <div class="skill">
+                Canva
+            </div>
+            <div class="skill">
+                Wireframing
+            </div>
+            <div class="skill">
+                HTML & CSS Basics
+            </div>
+        </div>
+    </section>
+
+    <!-- projects -->
+    <section class="projects" id="projects">
+        <div class="section-title">
+            <h2>
+                My Projects
+            </h2>
+        </div>
+        <div class="projects-grid">
+            <!-- project 1 -->
+            <div class="project">
+                <div class="project-image">
+                    <!-- Ganti dengan screenshot project -->
+                    <span><img src="img/project 1.png" alt=""></span>
+                </div>
+                <div class="project-info">
+                    <small>
+                        WEB UI/UX • TEAM PROJECT
+                    </small>
+                    <h3>
+                        Sahabat Bumi
+                    </h3>
+                    <p>
+                        Designed the main user journey, including
+                        the landing page, authentication, review,
+                        and dashboard structure for an environmental
+                        platform.
+                    </p>
+
+                    <div class="chips">
+                        <span class="chip">
+                            UI/UX
+                        </span>
+                        <span class="chip">
+                            Figma
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- project 2 -->
+            <div class="project">
+                <div class="project-image">
+                    <!-- Ganti dengan screenshot project -->
+                    <span><img src="img/project 2.png" alt=""></span>
+                </div>
+                <div class="project-info">
+                    <small>
+                        WEB UI/UX • LIDM 2026
+                    </small>
+                    <h3>
+                        Pinteria Admin Dashboard
+                    </h3>
+                    <p>
+                        Designed the Admin Dashboard interface
+                        and workflow for efficient data and
+                        content management.
+                    </p>
+                    <div class="chips">
+                        <span class="chip">
+                            UI/UX
+                        </span>
+                        <span class="chip">
+                            Figma
+                        </span>
+                        <span class="chip">
+                            Dashboard
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- project 3 -->
+            <div class="project">
+                <div class="project-image">
+                    <span><img src="img/project 3.png" alt=""></span>
+                </div>
+                <div class="project-info">
+                    <small>
+                        MOBILE UI/UX
+                    </small>
+                    <h3>
+                        Wardrobe AI
+                    </h3>
+                    <p>
+                        Translated an application concept into
+                        wireframes and a modern mobile interface
+                        designed in Figma.
+                    </p>
+                    <div class="chips">
+                        <span class="chip">
+                            UI/UX
+                        </span>
+                        <span class="chip">
+                            Figma
+                        </span>
+                        <span class="chip">
+                            Mobile
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- project 4 -->
+            <div class="project">
+                <div class="project-image">
+                    <span><img src="img/project 4.png" alt=""></span>
+                </div>
+                <div class="project-info">
+                    <small>
+                        DESKTOP APPLICATION
+                    </small>
+                    <h3>
+                        Student Expense Manager
+                    </h3>
+                    <p>
+                        A desktop application for managing student
+                        income and expenses using Python, Tkinter,
+                        and basic OOP concepts.
+                    </p>
+                    <div class="chips">
+                        <span class="chip">
+                            Python
+                        </span>
+                        <span class="chip">
+                            Tkinter
+                        </span>
+                        <span class="chip">
+                            OOP
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- contact -->
+    <section class="contact" id="contact">
+        <h2>
+            Let's Connect & Collaborate!
+        </h2>
+        <p>
+            Have an idea, project, or just want to say hello?
+            Find me through the links below.
+        </p>
+
+        <div class="socials">
+            <a href="https://www.linkedin.com/in/octabea" target="linkedln">
+                LinkedIn
+            </a>
+            <a href="https://github.com/octahbhn" target="github">
+                GitHub
+            </a>
+            <a href="https://www.instagram.com/octahbhn" target="ig">
+                Instagram
+            </a>
+            <a href="mailto:octaviahabeahan233@gmail.com">
+                Email
+            </a>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+        <p>
+            octabea
+        </p>
+    </footer>
+</body>
+</html>
